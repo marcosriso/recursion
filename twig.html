@@ -1,0 +1,21 @@
+{% macro recursiveCategory(m) %}
+<li>
+    <a href="{{ m.URL }}">
+        <i class="entypo-forward"></i>
+        <span>{{ m.TITLE }}</span>
+    </a>
+    {% if m.submenu|length %}
+    <ul>
+        {% for child in m.submenu %}
+        {{ _self.recursiveCategory(child) }}
+        {% endfor %}
+    </ul>
+    {% endif %}
+</li>
+{% endmacro %}
+
+{% if menu_itens %}
+        {% for menu in menu_itens %}
+            {{ _self.recursiveCategory(menu) }}
+        {% endfor %}
+{% endif %}
