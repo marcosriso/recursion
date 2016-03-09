@@ -1,6 +1,6 @@
 <?php
     
-    $example = Array
+    $tree = Array
                     (
                         [0] => Array
                             (
@@ -97,7 +97,7 @@
 
 
     // remember to order the array by parent_id asc
-
+    $parent = 0;
     function formatTree($tree, $parent){
         $tree2 = array();
         foreach($tree as $i => $item){
